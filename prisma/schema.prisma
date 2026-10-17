@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model GalleryItem {
+  id          String   @id @default(cuid())
+  title       String
+  category    String   @default("Bridal")
+  imageUrl    String
+  description String   @default("")
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Feedback {
+  id        String   @id @default(cuid())
+  clientName String
+  message   String
+  rating    Int      @default(5)
+  occasion  String   @default("Special occasion")
+  approved  Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String   @default("")
+  eventDate String   @default("")
+  service   String   @default("General enquiry")
+  message   String
+  status    String   @default("NEW")
+  createdAt DateTime @default(now())
+}

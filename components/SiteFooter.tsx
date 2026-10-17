@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function SiteFooter(){return <footer className="footer"><div><Link href="/" className="footer-brand">Kanchan <em>Mehndi Artist</em></Link><p>Bringing colours to your moments.</p></div><div className="footer-links"><Link href="/gallery">Gallery</Link><Link href="/contact">Book a session</Link><Link href="/admin/login">Admin</Link></div><span className="copyright">© {new Date().getFullYear()} Kanchan Mehndi Artist</span></footer>}
